@@ -5,10 +5,10 @@ additional experimentation with things explained, so I'd see how they work.
 
 The following courses have been completed:
 
-* none yet
+* 001 - Basic JavaScript
 
 
 Currently working on:
 
-* 001 - Basic JavaScript
+* 002 - ES6
 

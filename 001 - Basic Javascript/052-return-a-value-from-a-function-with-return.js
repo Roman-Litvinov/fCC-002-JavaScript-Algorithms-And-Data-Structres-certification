@@ -5,6 +5,13 @@ function timesFive(param1) {
   return param1*5;
 }
 
+// NOTE - the value to return can be enclosed in parentheses.
+// The below 2 lines do the same thing and are equally correct:
+// 
+// return a + b;
+// return (a + b);
+
+
 console.log(timesFive(6));
 
 console.log(timesFive(5));
