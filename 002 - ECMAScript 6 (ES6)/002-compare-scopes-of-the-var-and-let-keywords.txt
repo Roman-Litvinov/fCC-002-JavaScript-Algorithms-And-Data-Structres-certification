@@ -1,0 +1,69 @@
+/* Using LET keyword to declare a variable inside a block, statement, or expression
+  limits its scope to that block, statement, or expression. Example:
+*/
+
+// in below code, variable i is declared GLOBALLY, using VAR keyword, 
+// and thus is visible globally, everywhere, outside of the FOR loop:
+var numArray = [];
+for (var i=0; i<3; i++) {
+  numArray.push(i);
+}
+console.log('numArray is:',numArray);
+console.log('i is:',i);
+
+
+// using VAR may present problems, like in the below code:
+var printNumTwo;
+for (var i=0; i<3; i++) {
+  // when i is 2, store a function in the global 
+  // var printNumTwo which returns a value of i
+  // (which is 2 at that specific moment):
+  if (i === 2) {
+    printNumTwo = function() {
+      return i;
+    }
+  }
+}
+// call the printNumTwo() function - but it returns 3, not 2!
+// The reason is that by this moment i (which is global) has been
+// incremented to 3 by the iteration in the FOR loop, after the
+// printNumTwo() function has been defined and stored. So it returns
+// the updated value instead:
+console.log('printNumTwo() is:', printNumTwo());
+
+// to fix the problem, we use LET keyword to declare a variable
+// to limit its scope to the specific block/statement/expression,
+// and to prevent conflicts with global variables of the same name:
+var printNumTwo;
+for (let i=0; i<3; i++) {
+  if (i === 2) {
+    printNumTwo = function() {
+      // this will return 2, because -see explanation below-
+      return i;
+    }
+  }
+}
+// this now prints 2, because that's how function was 
+// defined & stored - when i was 2:
+console.log('printNumTwo() is:', printNumTwo());
+// the below line will throw a "ReferenceError: i is not defined",
+// because i was declared with LET keyword and its scope is limited 
+// to the FOR loop, it's not visible outside of it:
+console.log('i is:', i);
+
+
+// LESSON CODE - illustrate 2 different-scoped variables
+// with the same name i having different values separate
+// from each other:
+function checkScope() {
+  // i with a function scope of inside checkScope() function:
+  let i = 'function scope';
+  if (true) {
+    // i with a block scope of inside curly braces {},
+    // different from the checkScope() function scope i:
+    let i = 'block scope';
+    console.log('Block scope i is: ', i);
+  }
+  console.log('Function scope i is: ', i);
+  return i;
+}

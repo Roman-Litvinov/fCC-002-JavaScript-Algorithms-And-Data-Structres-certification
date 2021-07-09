@@ -1,0 +1,27 @@
+// While using CONST to declare a variable prevents re-assigning
+// the variable identifier to point to a different value by using
+// the assignment operator "=", WE CAN STILL MUTATE/CHANGE 
+// THE OBJECTS/ARRAYS/FUNCTIONS/ETC that the identifier points to.
+// 
+
+// Example
+// We can't assign a different array to constant s,
+// but we can change the array (that it's been assigned) itself:
+
+const s = [5, 7, 2];
+function editInPlace() {
+  // change the array to [2, 5, 7]
+  // NOTE: using s = [2, 5, 7] would be invalid
+  // s = [2, 5, 7];    // throws TypeError: "s" is read-only
+  
+  // we can use sort() method of Array object, like so:
+  s.sort();
+  // we could also change elements directly:
+  /*
+  s[0] = 2;
+  s[1] = 5;
+  s[2] = 7;
+  */
+}
+editInPlace();
+console.log(s);

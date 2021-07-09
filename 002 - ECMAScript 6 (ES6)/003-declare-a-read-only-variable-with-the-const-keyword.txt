@@ -1,0 +1,22 @@
+// variables declared using CONST have the same properties as
+// variables declared using LET - and also:
+// - they are commonly given UPPERCASE identifiers
+// - they MUST be initialized with a value at declaration time
+// - once given value, they are IMMUTABLE - meaning they cannot
+//   be changed!
+
+// Example:
+const SOMECONSTANT = "";
+SOMECONSTANT = "yeah";   // gives TypeError: "SOMECONSTANT" is read-only
+
+
+
+function printManyTimes(str) {
+  // SENTENCE is declared using CONST 
+  // because we don't want it to change afterwards:
+  const SENTENCE = str + " is cool!";
+  for (let i = 0; i < str.length; i+=2) {
+    console.log(SENTENCE);
+  }
+}
+printManyTimes("freeCodeCamp");
