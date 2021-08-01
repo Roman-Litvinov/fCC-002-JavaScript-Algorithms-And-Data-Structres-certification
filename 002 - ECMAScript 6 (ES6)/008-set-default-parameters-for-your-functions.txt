@@ -1,0 +1,23 @@
+// DEFAULT PARAMETERS for functions are values
+// that we define to be used by default, if arguments
+// are not provided in function calls.
+
+// Example:
+// below function takes a string as an argument to use.
+// If no argument is given in the function call, it will
+// use "Anonymous" as a default value for parameter "name":
+const greeting = (name = "Anonymous") => {
+  console.log("\"name\" is: "+name);
+  return "Hello, " + name;
+}
+
+// argument given - we get "Hello, John":
+console.log(greeting("John"));
+// argument not given - we get "Hello, Anonymous":
+console.log(greeting());
+
+
+
+// set default parameter so that 1 is added to "number"
+// if "value" is not specified:
+const increment = (number, value=1) => number + value;

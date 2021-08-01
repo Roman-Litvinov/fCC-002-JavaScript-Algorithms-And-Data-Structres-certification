@@ -1,0 +1,57 @@
+// INLINE/ANONYMOUS FUNCTIONS
+// when we don't need to re-use a function (such as when we pass it 
+// as an argument to another function, or assign it to a variable), 
+// we don't need to name it. Instead we create it INLINE.
+
+// EXAMPLE:
+// 1 -- FULL definition of a function, WITH A NAME, is like this:
+function someFunc1 () {
+  const myVar = "function someFunc has executed.";
+  return myVar;
+}
+var someString1 = "WTF, " + someFunc1();
+console.log(someString1);
+
+
+
+// 2 -- an INLINE version of the same function, WITHOUT A NAME, 
+// which we assign to a variable someFunc2 (which in effect
+// becomes a function):
+var someFunc2 = function () {
+  const myVar = "inline function with no name has executed.";
+  return myVar;
+}
+var someString2 = "WTF, " + someFunc2();
+console.log(someString2);
+
+
+// 3 -- ARROW FUNCTION SYNTAX - the above inline function, but
+// written in a shorter way, without the keyword "function":
+var someFunc3 = () => {
+  const myVar = "inline arrow function with no name has executed.";
+  return myVar;
+}
+var someString3 = "WTF, " + someFunc3();
+console.log(someString3);
+
+
+// 4 -- ARROW FUNCTION SYNTAX - the above arrow function, but 
+// written in an EVEN SHORTER way, without the brackets around the code
+// and without using the "return" keyword.
+// This is done when:
+// - there is no function body
+// - there is only a return value
+var someFunc4 = () => "fully shortened inline arrow function with no name has executed.";
+var someString4 = "WTF, " + someFunc4();
+console.log(someString4,"\n");
+
+
+// LESSON CHALLENGE:
+/* re-write the below function using arrow function syntax:
+var magic = function() {
+ return new Date();
+};
+*/
+
+const magic = () => new Date();
+console.log(magic());

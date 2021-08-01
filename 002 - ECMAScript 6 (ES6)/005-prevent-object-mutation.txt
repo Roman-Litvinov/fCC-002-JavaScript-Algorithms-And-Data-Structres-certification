@@ -1,0 +1,72 @@
+// Object.freeze(objectName) method is used to prevent adding/deleting/updating its properties.
+// NOTE: unless in strict mode, attempts to change the object will fail SILENTLY without error
+// messages, - otherwise they throw a TypeError error.
+// NOTE: if object's properties are OBJECTS themselves, they CAN be modified after the parent
+// object is frozen, - unless they've been frozen themselves, too.
+
+// Example:
+// define some object:
+let obj = {
+  name:"FreeCodeCamp",
+  review:"Awesome",
+  someProp:"Yay!"
+};
+// then freeze it:
+Object.freeze(obj);
+// NOW....
+// try and MODIFY AN EXISTING PROPERTY - it will throw a TypeError,
+// about "review" being read-only, which we catch and show:
+try {
+  obj.review = "bad";
+} catch (ex) {
+  console.log("When we try to MODIFY the property of a frozen \
+object, we get the following error thrown:\n", ex,"\n");
+}
+// try and ADD a new property - it will throw a TypeError, about not 
+// being able to define a new property "newProp" due to Object 
+// not being extensible, - which we catch and show:
+try {
+  obj.newProp = "new property test";
+} catch (ex) {
+  console.log("When we try to ADD A NEW PROPERTY to a frozen object \
+, we get the following error thrown:\n", ex, "\n");
+}
+// try and DELETE a property - it will throw a TypeError, about property
+// "someProp" being non-configurable and unable to be deleted
+try {
+  delete obj.someProp;
+} catch (ex) {
+  console.log("When we try and DELETE AN EXISTING PROPERTY of a frozen object \
+, we get the following error thrown:\n", ex, "\n");
+}
+// show the object - we can see that it hasn't been changed:
+console.log(obj);
+
+
+
+// CHALLENGE
+// define some constants:
+function freezeObj() {
+  // set up MATH_CONSTANTS object
+  // with a property PI of a value 3.14:
+  const MATH_CONSTANTS = {
+    PI: 3.14
+  };
+  // freeze the MATH_CONSTANTS objects so no one can mess with them:
+  Object.freeze(MATH_CONSTANTS);
+  try {
+    // this will throw an exception...
+    MATH_CONSTANTS.PI = 99;
+    // which is caught in the variable ex....
+  } catch(ex) {
+    // which is then printed out in console:
+    console.log("Exception caught was:", ex);
+  }
+  // return the changed (or unchanged) value of PI:
+  return MATH_CONSTANTS.PI;
+}
+// call a function that returns a value of PI - which is set to 3.14
+// initially, and which we then attempt to change to 99 after freezing
+// its container object:
+const PI = freezeObj();
+console.log("constant PI is", PI);

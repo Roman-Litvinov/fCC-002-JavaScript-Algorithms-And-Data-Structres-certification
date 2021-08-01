@@ -1,0 +1,54 @@
+/* REDUCE method of Array object
+- takes an array and returns a single value - the accumulated result of the REDUCER function
+- executes some REDUCER function on each of the array's elements
+- doesn't execute the reducer function on empty elements of the array
+- has the following format:
+
+  someArray.reduce(reducerFunction, initialValue)
+
+where:
+- reducerFunction - the function to execute on each array element from left to right
+- initialValue (optional) - a value passed to the reducer function as a starting value
+  of the accumulated total
+
+The REDUCER function has the following format:
+
+  functionName(total, currentValue, currentIndex, arr)
+
+where:
+- total - ASSUMED TO BE the previous result of the function's execution
+- currentValue - ASSUMED TO BE the current element of the array
+- currentIndex - (optional) index of the current element in the array
+- arr - (optional) the array the current element belongs to
+
+*/
+
+// EXAMPLE
+// "...args" is a REST parameter, allowing us to accept any number of arguments,
+// all of which will be saved in the array named "args".
+// We will then reduce the array "args" to a single value which will be the sum
+// of all its elements.
+// add() is the reducer function in this case. It will be run on each element
+// of args array and add the element's value first to 0 (initial value), and then to
+// its previous result.
+// The accumulated result will then be returned.
+const sum = (...args) => {
+  function add(a,b) {
+    return a+b;
+  }
+  return args.reduce(add,0);
+}
+
+
+// test cases:
+console.log(sum(0,1,2));
+console.log(sum(1,2,3,4));
+console.log(sum(5));
+console.log(sum(0));
+
+/* original lesson code:
+const sum = (x, y, z) => {
+  const args = [x, y, z];
+  return args.reduce((a, b) => a + b, 0);
+}
+*/

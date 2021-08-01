@@ -1,0 +1,64 @@
+/* SPREAD OPERATOR "..."
+- used to EXPAND arrays and other expressions in places
+  where multiple parameters or elements are expected,
+  e.g. in function calls with expected multiple arguments
+- takes an array and turns it into a list of multiple values
+
+SPREAD OPERATOR does the opposite of REST PARAMETERS (both use the "..." syntax):
+whereas rest parameters are used in function DEFINITIONS, to turn individual 
+values into an array, spread operator is used in function CALLS, to EXPAND
+the given array into a list of multiple comma-separated parameters.
+
+Example - function taking rest parameters which will be stored in the array "args":
+someFunction(...args) {
+  // function code
+}
+
+Example - spread operator expanding the array used as an argument into multiple 
+arguments (because the function expects it)
+var someArray = [1,2,10,75,11,0];
+var result = Math.max(...someArray);
+
+*/
+
+// "...someArray" expands someArray into multiple values
+// that Math.max() finds the largest out of of:
+var someArray = [1,2,10,75,11,0];
+var result = Math.max(...someArray);
+console.log("result is: "+result);
+
+
+// IMPORTANT NOTE REGARDING THE ARRAYS:
+// using assignment "=" on 2 arrays like below only 
+// points arr2 variable to the same array as arr1:
+let arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+arr2 = arr1;
+// if we change an element of arr1, it reflects in arr2:
+console.log("arr1 is: "+arr1+"\narr2 is: "+arr2);
+arr1[2] = "JUN";
+console.log("We changed arr1[2] from 'MAR' to 'JUN'.");
+console.log("After the change, arr1 is: "+arr1+"\nAfter the change, arr2 is: "+arr2+"\n");
+
+
+// We need to use the spread syntax - thus expanding array arr1 
+// into a new ARRAY LITERAL and assigning that to arr2, instead
+// of simply pointing arr2 to the same array. Observe:
+
+arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+// using spread syntax, turn arr1 into a new array literal
+// and assign it to arr2:
+arr2 = [...arr1];
+
+// if we change an element of arr1 now, it does NOT reflect in arr2,
+// arr2 stays the same because it's pointing to a different array:
+console.log("arr1 is: "+arr1+"\narr2 is: "+arr2);
+arr1[2] = "JUN";
+console.log("We changed arr1[2] from 'MAR' to 'JUN'. ");
+console.log("After the change, arr1 is: "+arr1+"\nAfter the change, arr2 is: "+arr2);
+console.log("arr2 is not changed - it's pointing to a separate array literal value.")
+
+
+// lesson challenge:
+arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+arr2 = [...arr1];

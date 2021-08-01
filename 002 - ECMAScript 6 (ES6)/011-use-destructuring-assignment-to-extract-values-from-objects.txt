@@ -1,0 +1,30 @@
+// destructuring assignment:
+// when we assign an object to the list of variables,
+// the variables get values of the object properties 
+// with the same name. Example:
+
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80
+};
+
+// assign values of properties "today" and "tomorrow"
+// of HIGH_TEMPERATURES object to the new variables
+// named "today" and "tomorrow":
+const {today, tomorrow} = HIGH_TEMPERATURES;
+
+try {
+  console.log("today:", today);
+  console.log("tomorrow:", tomorrow);
+  console.log("yesterday:", yesterday);
+} catch (ex){
+  console.log(ex);
+}
+
+
+/* the above is equivalent to:
+const.today = HIGH_TEMPERATURES.today;
+const.tomorrow = HIGH_TEMPERATURES.tomorrow;
+
+*/
