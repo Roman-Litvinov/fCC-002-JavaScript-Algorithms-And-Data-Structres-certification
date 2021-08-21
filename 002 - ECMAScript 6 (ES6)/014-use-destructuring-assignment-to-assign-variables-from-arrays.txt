@@ -1,0 +1,30 @@
+// destructure an array and pick some values as we wish,
+// assigning them to variables:
+let myArr = [1, 2, 3, 4, 5, 6];
+let [c, d] = myArr;
+console.log("c: " + c + ", d: " + d + "\n");
+
+// we start getting values from element 0, and can skip
+// over elements by using commas to reach the desired index:
+let [e, , , , f] = myArr;
+console.log("e: " + e + ", f: " + f + "\n");      // e gets 1, and f gets 5
+
+// we can also use an array literal:
+let [, g, h, , , i] = [10, 11, 12, 13, 14, 15, 16, 17];
+console.log(g, h, i);     // output: 11, 12, 15
+
+
+// SWAPPING 2 VARIABLES IN A SINGLE STATEMENT, without a 3rd temp variable!
+let a = 8, b = 6;
+console.log("a is", a);
+console.log("b is", b);
+
+[a, b] = [b, a];
+console.log("Now we swapped a and b, by going:\n[a,b] = [b,a];\nAnd now...");
+console.log("a is", a);
+console.log("b is", b);
+console.log("The head, she explodes!");
+
+let someArr = [1, 5, "a", 16, 0, , 2];
+console.log("\nsomeArr - an array (a list of values separated by commas):\n", someArr);
+console.log("someArr - unpacked with a spread operator (just a list of values):\n", ...someArr);

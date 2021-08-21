@@ -1,0 +1,13 @@
+// Example of a promise declaration:
+const myPromise = new Promise((resolve, reject) => { /* function body code */});
+
+
+// LESSON CHALLENGE
+// make a new promise called "makeServerRequest",
+
+const makeServerRequest = new Promise((resolve, reject) => {
+      // the Promise constructor function takes an argument - a FUNCTION.
+      // This function itself has 2 parameters: resolve and reject.
+      // These are methods that are used to determine the outcome of the promise
+
+});

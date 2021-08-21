@@ -1,0 +1,42 @@
+/* TEMPLATE LITERALS
+Template literals are a special type of strings that make creating 
+complex strings easier. They look like this:
+
+  ${variableName}    - inserts the value of the variable
+  ${expression}      - inserts the result of the expression (can use variables, conditionals, etc.)
+
+Template literals can be multi-line, and are shown just as they are written in code, newline-wise.
+Tempalte literals don't use +'s for concatenating pieces of the final string together with variables.
+Instead we put variables surrounded by  ${...} directly inside the actual final string.
+ */
+
+const person = {
+	name: "Zodiac Hasbro",
+	age: 56
+};
+let a = 8, b = 7;
+// Create a complex multi-line string:
+// - uses template strings ${ }
+// - uses backticks `
+// - doesn't need to use concatenation +, newlines \n, etc.
+let greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.
+Also, ${a} plus ${b} equals ${a + b}.`;				// uses an expression!
+greeting += `Also, ${a} ${(a>b)?">":"<"} ${b}!`;	// uses a conditional! OH WOW, MUCH COOL, SO AWESOMENESS!
+console.log(greeting);
+
+
+const result = {
+	success: ["max-length", "no-amd", "prefer-arrow-functions"],
+	failure: ["no-var", "var-on-top", "linebreak"],
+	skipped: ["no-extra-semi", "no-dup-keys"]
+};
+function makeList(arr) {
+	const failureItems = [];
+	for (let i=0; i<arr.length; i++) {
+		failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
+	}
+	return failureItems;
+}
+console.log(makeList(result.failure));
+const failuresList = makeList(result.failure);

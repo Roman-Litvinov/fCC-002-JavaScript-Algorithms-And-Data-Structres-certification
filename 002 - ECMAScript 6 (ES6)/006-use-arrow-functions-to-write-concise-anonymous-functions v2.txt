@@ -1,0 +1,46 @@
+// inline, unnamed, function:
+const myFunc01 = function () {
+  const myVar = "value01";
+  return myVar;
+}
+console.log(myFunc01());
+
+// same function, re-written as an arrow function:
+const myFunc02 = () => {
+  const myVar = "value02";
+  return myVar;
+}
+console.log(myFunc02());
+
+// same function, re-written as a one-line arrow function
+// (because there's no function body and only a return value,
+// - so we remove the braces and the "return" keyword:
+const myFunc03 = () => "value03";
+console.log(myFunc03());
+
+// a simple arrow function to add 2 numbers given as arguments:
+const myFunc04 = (a,b) => a+b;
+console.log("myFunc04's output:", myFunc04(2, 3));
+
+// arrow function's return value can be a statement to execute, even conditions, and even multiple statements, apparently,
+// just need to separate them with semicolons
+// EXCEPT that:
+// - the last statement seems to execute first
+// - the arguments passed to the function don't seem to last for more than the very 1st statement
+const myFunc05 = (a,b) => 
+  (a>b)?console.log(a+" is larger than "+b):console.log(a+" is smaller than "+b);
+  console.log("b="+b," DONE?");
+  let b=15;
+  console.log("b="+b," DONE!");
+myFunc05(7,8);
+
+
+// LESSON CHALLENGE:
+/*
+var magic = function() {
+  return new Date();
+};
+*/
+
+// the above function re-written as an arrow function:
+const magic =()=> new Date();

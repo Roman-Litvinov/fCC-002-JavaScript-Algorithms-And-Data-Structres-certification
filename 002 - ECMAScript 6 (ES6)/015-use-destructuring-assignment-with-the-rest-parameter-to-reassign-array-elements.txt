@@ -1,0 +1,24 @@
+// save parts of the array literal into:
+// - 2 variables (get first 2 elements)
+// - a new array (gets the rest of the elements - as it is the rest parameter, get it?)
+const [a,b,...someArr] = [1,2,3,4,5,7];
+console.log("a is", a);
+console.log("b is", b);
+console.log("and someArr is", someArr,"\n");
+
+
+// LESSON CHALLENGE:
+const source = [1,2,3,4,5,6,7,8,9,10];
+
+function removeFirstTwo(list) {
+  // save the provided array without the first 2 elements into arr (the rest parameter)
+  const [a,b,...arr] = list;
+  console.log("The provided array is:\n",list);
+  console.log("First 2 elements are:",a,b);
+  console.log("The remaining part of the provided array is:\n", arr);
+  // and return the new array as the result of the function:
+  return arr;
+}
+
+const arr = removeFirstTwo(source);
+console.log("And this is the output of the function\n", arr);

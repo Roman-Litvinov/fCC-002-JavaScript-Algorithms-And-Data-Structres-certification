@@ -1,9 +1,13 @@
 /* destructuring assignment allows to give different names
 to the variables that receive values of properties.
 The new names are specified like so:
+*/
 
-  {propertyName: newVariableName} = objectName;
+let objectName = {propertyName:"propertyValue"};      // D&I the object first.
 
+let { propertyName: newVariableName } = objectName;
+
+/*
 where:
 - propertyName:     the name of the property of the object that we are extracting
 - newVariableName:  the name of the variable that we are storing the value in, that
@@ -14,7 +18,7 @@ const user = {name:"John Doe", age:34};
 const {name:userName, age:userAge};       // saves properties "name" and "age"
                                           // into vars "userName" and "userAge"
 
-*/ 
+*/
 
 const HIGH_TEMPERATURES = {
   yesterday: 75,
@@ -25,4 +29,7 @@ const HIGH_TEMPERATURES = {
 // extract "today" and "tomorrow" property values and save
 // them into variables with different names from property names,
 // "highToday" and "highTomorrow":
-const {today : highToday, tomorrow : highTomorrow} = HIGH_TEMPERATURES;
+const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
+
+console.log("highToday is: " + highToday);
+console.log("highTomorrow is: " + highTomorrow);

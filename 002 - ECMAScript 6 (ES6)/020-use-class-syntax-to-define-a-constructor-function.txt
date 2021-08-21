@@ -1,0 +1,43 @@
+// CREATING OBJECT INSTANCES
+
+// The ES5 way:
+// 1 - define a constructor function,
+// 2 - use "new" keyword with the constructor function to create a new instance.
+
+// ES5 EXAMPLE
+// define a constructor function:
+function SomeGodPerson (targetPlanet) {
+  // set a property of the newly-created object:
+  this.targetPlanet = targetPlanet;
+}
+// create a new object "zeus", setting its property to 'Jupiter':
+var zeus = new SomeGodPerson('Jupiter');
+console.log("zeus is:", zeus);
+console.log(`zeus's type is: ${typeof(zeus)}`);
+
+// The ES6+ way:
+// Same as before, except the constructor function is now declared using
+// the "constructor" keyword and is placed inside the "class" definition.
+// Then a new object instance is created using the "new" keyword.
+
+// ES6+ EXAMPLE
+// define a class with the constructor function within:
+class SomeGodPersonES6 {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+const aries = new SomeGodPersonES6('Mars');
+console.log("aries is:", aries);
+console.log("aries' type is:", typeof(aries),"\n");
+
+
+// LESSON CHALLENGE:
+class Vegetable {
+  constructor (vegName="some unknown vegetable name") {
+    this.name = vegName;
+  }
+}
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name);

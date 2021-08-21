@@ -1,0 +1,67 @@
+// SETTERS AND GETTERS
+// are methods/functions used to set (write) and get (read) values
+// of the object's properties without the user having to access
+// object's private properties directly.
+//
+// Setters and getters are defined as functions internally using 
+// keywords "set" and "get". Setters get a parameter, getters have
+// no parameters.
+//
+// From outside, they are used as if we were reading or changing 
+// the value of an object's property - NOT like a function.
+//
+// NOTE: the underscore is commonly used to indicate that the variable
+// is private/internal/shouldn't be accessed directly, like so:
+//  _privateVarName.
+
+
+class Book {
+  // constructor sets the "_author" property when initalizing
+  // the new object instance:
+  constructor(author) {
+    this._author = author;
+  }
+  // getter returns the value of _author property of the object:
+  get writer() {
+    return this._author;
+  }
+  // setter changes the value of _author property to the value
+  // that's been passed to it:
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+// create a new instance of an object of class Book:
+const novel = new Book('anonymous');
+console.log("novel object:", novel);
+// use the getter to check the author - as if we were reading a property, NOT calling a function:
+console.log("check the author:", novel.writer);
+// use the setter to modify the author - as if we were setting a property, NOT calling a function with a parameter:
+console.log(`Now we're about to change the author to: ${novel.writer = 'some other guy'}`);
+
+
+
+
+
+// LESSON CHALLENGE:
+class Thermostat {
+  constructor(tempFar) {
+    // internally, temperature is saved in degrees Fahrenheit:
+    this._temperature = tempFar;
+  }
+  // getter - returns temperature in degrees Celsius:
+  get temperature() {
+    return (this._temperature - 32) * 5 / 9;
+  }
+  // setter - accepts temperature in degrees Celsius, converts and saves in degrees Fahrenheit:
+  set temperature(tempCels) {
+    this._temperature = tempCels * 9 / 5 + 32;
+  }
+}
+
+const thermos = new Thermostat(76);           // new object, accepts temperature in Fahrenheit at initializing
+let temp = thermos.temperature;               // temp will get 76 F, but returned in Celsius by the getter
+console.log(`temp is ${Math.round(temp)} degrees Celsius.`);       
+thermos.temperature = 26;                     // setter will set temperature to 26 in Celsius, saved in Fahrenheit internally
+temp = thermos.temperature;                   // getter will return 26 in Celsius to be saved in temp
+console.log(`temp is now ${Math.round(temp)} degrees Celsius.`);

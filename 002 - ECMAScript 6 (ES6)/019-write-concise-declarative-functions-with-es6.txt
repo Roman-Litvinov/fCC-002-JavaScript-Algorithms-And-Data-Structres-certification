@@ -1,0 +1,48 @@
+// old ES5 way of defining a function within an object:
+const person1 = {
+  name: "Taylor",
+  sayHello: function () {
+    return `Hello! My name is ${this.name}.`;
+  }
+}
+console.log(person1);
+// calling the function inside the object:
+console.log(person1.sayHello());
+
+
+// When defining functions inside objects as their properties,
+// we don't have to use the colon : and the word "function",
+// instead we just list the function name (which is the property
+// name), followed by its body, like so:
+
+
+// new ES6+ way of defining a function within an object - shorthand syntax:
+const person2 = {
+  name: "Jack",
+  // concise function declaration - no need for ":"" or the "function" keyword:
+  sayHello(lastname = "Anonymous") {
+    return `Hello! My name is ${this.name} ${lastname}.`;
+  }
+}
+console.log(person2);
+// calling the function inside the object without passing an argument to it:
+console.log(person2.sayHello());
+// calling the function inside the object passing an argument to it:
+console.log(person2.sayHello("Litvinov"));
+
+
+
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  },
+  showGear() {
+    return this.gear
+  }
+};
+console.log(bicycle);
+// call a function within the object, with a parameter:
+bicycle.setGear(3);
+// call a function within the object, without a paramter:
+console.log(`The bicycle is set to gear ${bicycle.showGear()}.`);

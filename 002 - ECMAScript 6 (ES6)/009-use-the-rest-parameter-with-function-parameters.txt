@@ -32,6 +32,7 @@ where:
 // of args array and add the element's value first to 0 (initial value), and then to
 // its previous result.
 // The accumulated result will then be returned.
+
 const sum = (...args) => {
   function add(a,b) {
     return a+b;
@@ -52,3 +53,38 @@ const sum = (x, y, z) => {
   return args.reduce((a, b) => a + b, 0);
 }
 */
+
+
+
+// Rest parameter takes any number of arguments - the number doesn't need to be specified
+// in the function's declaration. It creates 
+
+function howMany(...args) {
+  console.log("This is \"args\":", args)
+  return "You have passed "+args.length+" arguments.";
+}
+console.log(howMany(15,8,"td"));
+console.log(howMany("string", null, [1,2,3], {}, 4, "4", undefined, {Pro:"Val"}))
+
+// test - a very simple arrow function to add 3 numbers:
+const sumUp = (a,b,c)=>a+b+c;
+console.log("The sum of 3 numbers is:", sumUp(1,2,3));
+// HOLY SHIT, THIS IS GETTING SO SIMPLE!
+
+// and here's another function!!!!
+const multi =(a,b)=>a*b;    // <-- this a FUNCTION DEFINITION, OMG!
+console.log(multi(2,2));
+
+
+// LESSON CHALLENGE:
+// this function is set up to accept any number of arguments
+// and return their sum (sum is added to the initial value of 0):
+const sum = (...args) => {
+  return args.reduce((a, b) => a + b, 0);
+}
+
+// test cases:
+console.log(sum(0,1,2));
+console.log(sum(1,2,3,4));
+console.log(sum(5));
+console.log(sum(0));

@@ -1,0 +1,26 @@
+// The DEFAULT EXPORT - used by default when importing a single entity from a file/module.
+// 
+// Rules:
+// - only a single entity in a module/file can be a default export
+// - default exports can be imported without using curly braces
+// - default exports can be imported under any name, it doesn't have to be the same name
+//   used when the entity was exported
+// - export default cannot be used with "var", "let", or "const" at declaration - but variables
+//   declared using these keywords can be exported in a separate statement after the declaration.
+
+/* 
+// Example - default export of a named function:
+export default function add(x, y) {
+  return x + y;
+}
+
+// Example - default export of an anonymous unnamed function
+export default function (x, y) {
+  return x * y;
+}
+*/
+
+// LESSON CHALLENGE - change function to be the default export:
+export default function subtract(x, y) {
+  return x - y;
+}

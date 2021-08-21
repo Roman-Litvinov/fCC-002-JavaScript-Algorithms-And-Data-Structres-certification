@@ -1,0 +1,15 @@
+// When importing default exports, we don't use curly braces
+// around the name of the entity. Example:
+
+import anyName from "./math_functions.js";
+
+// The above imports whatever the default export is in "math_functions.js",
+// and assigns it to the variable name "anyName". The name doesn't have to
+// match the name the default export was exported under in the original
+// module.
+
+// LESSON CHALLENGE
+// import the default export from math_functions.js and give it a name "subtract":
+import subtract from "./math_functions.js";
+
+console.log(subtract(7,4));

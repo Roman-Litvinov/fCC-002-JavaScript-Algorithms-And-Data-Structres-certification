@@ -1,0 +1,49 @@
+// We can extract values from nested objects using destructuring assignment,
+// by properly structuring multiple curly braces in the assignment, like so:
+
+// set up object "user" with a nested object as a value of one of its properties "johnDoe":
+const user = {
+  someProp: "someValue",
+  johnDoe: {
+    age: 34,
+    email: "johnDoe@freeCodeCamp.com",
+    lovesWomen: true
+  }
+};
+console.log(user);
+
+// extract a value of a top-level property "someProp", and 
+// assign it to a variable with a different name, varNewName.
+// We use curly braces in the usual simple single-level way:
+let { someProp: varNewName } = user;
+console.log("someProp's value is:", varNewName);              // gives us "someValue"
+
+// now extract some stuff from a nested object - let's try "age" and "email" of "johnDoe".
+// We have to use curly braces to replicate multiple-layer structure of "user" object to
+// get to the properties inside the nested object. We assign them to the variables with
+// the same names:
+let { johnDoe: { age, email } } = user;
+console.log("age is:", age);
+console.log("email is:", email);
+
+// Now let's extract the value of "lovesWomen" and assign it to the differently 
+// named variable "sexPreference":
+let { johnDoe: { lovesWomen: sexPreference } } = user;
+console.log("John Doe loves women:", sexPreference);
+
+
+// LESSON CHALLENGE:
+const LOCAL_FORECAST = {
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 }
+};
+
+// get the low and high temperatures from today's forecast
+// and assign them to variables lowToday and highToday,
+// using destructuring syntax:
+const { today: { low: lowToday } } = LOCAL_FORECAST;
+const { today: { high: highToday } } = LOCAL_FORECAST;
+console.log("Today's low temperature is forecast to be:", lowToday);
+console.log("Today's high temperature is forecast to be:", highToday);
+

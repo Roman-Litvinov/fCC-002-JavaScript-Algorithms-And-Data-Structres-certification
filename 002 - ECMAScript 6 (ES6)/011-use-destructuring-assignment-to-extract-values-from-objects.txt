@@ -12,19 +12,31 @@ const HIGH_TEMPERATURES = {
 // assign values of properties "today" and "tomorrow"
 // of HIGH_TEMPERATURES object to the new variables
 // named "today" and "tomorrow":
-const {today, tomorrow} = HIGH_TEMPERATURES;
+const { today, tomorrow } = HIGH_TEMPERATURES;
 
 try {
   console.log("today:", today);
   console.log("tomorrow:", tomorrow);
   console.log("yesterday:", yesterday);
-} catch (ex){
+} catch (ex) {
   console.log(ex);
 }
 
-
-/* the above is equivalent to:
+/*
+The above is equivalent to:
 const.today = HIGH_TEMPERATURES.today;
 const.tomorrow = HIGH_TEMPERATURES.tomorrow;
 
 */
+
+
+// TEST - destructure an array, maybe?
+// UPDATE - holy shit, it works!!!
+let someArr = [5,3,15,"20a"];
+let [x,x1,,x3,x4] = someArr;          // this takes elements 0, 1, 3 (we skip 2), and 4 of the array
+                                      // and saves them into the variables we listed, providing 
+                                      // that there are ENOUGH ELEMENTS to go around!
+console.log(x);      // outputs 5
+console.log(x1);      // outputs 3
+console.log(x3);      // outputs "20a"
+console.log(x4);      // outputs undefined - because there wasn't a 5th element in the array

@@ -1,0 +1,24 @@
+// IMPORTING allows us to choose which parts of a file/module to load.
+// Example - importing the function "add" from the file "math_functions.js"
+// that lies in the same directory as the current file (the path used here
+// is relative):
+
+import { add } from './math_functions.js';
+
+// JS will find the function "add" inside the file math_functions.js, import it,
+// and ignore the rest of thefile. Then we are able to use the function in our code:
+console.log("Sum of 5 and 7 is", add(5, 7));
+
+// We can also import several items in one import statement:
+import { multiply, subtract } from "./math_functions.js";
+
+
+
+// LESSON CHALLENGE - import 2 functions "uppercaseString" and "lowercaseString"
+// from "string_functions.js" in the same directory as this file, so we can use them:
+
+import {uppercaseString, lowercaseString} from './string_functions.js';
+uppercaseString("hello");
+lowercaseString("WORLD!");
+
+

@@ -2,7 +2,7 @@
 - used to EXPAND arrays and other expressions in places
   where multiple parameters or elements are expected,
   e.g. in function calls with expected multiple arguments
-- takes an array and turns it into a list of multiple values
+- takes a spreadable/iterable value and turns it into a list of multiple values
 
 SPREAD OPERATOR does the opposite of REST PARAMETERS (both use the "..." syntax):
 whereas rest parameters are used in function DEFINITIONS, to turn individual 
@@ -20,6 +20,23 @@ var someArray = [1,2,10,75,11,0];
 var result = Math.max(...someArray);
 
 */
+
+// test - spread operation on a string - turning it into an array
+let str = "whatever, dude";
+let spreadStr = [...str];         // string is spread and turned into an ARRAY of individual characters.
+                                  // WHY? Because we're using SQUARE BRACKETS to enclose the spread operator
+console.log("str is:", str);
+console.log("spreadStr array is:", spreadStr);
+
+// test - spread operation on a string - turning it into an object
+let strX = "yeah, man";
+let spreadStrX = {...strX};         // string is spread and turned into an OBJECT of {numbered key: individual character value} pairs.
+                                  // WHY? Because we're using CURLY BRACES to enclose the spread operator
+console.log("strX is:", strX);
+console.log("spreadStrX object is:", spreadStrX);
+
+
+
 
 // "...someArray" expands someArray into multiple values
 // that Math.max() finds the largest out of of:

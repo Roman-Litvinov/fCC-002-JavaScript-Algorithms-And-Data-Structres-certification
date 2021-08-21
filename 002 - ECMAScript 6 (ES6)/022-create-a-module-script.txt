@@ -1,0 +1,9 @@
+<html>
+  <body>
+
+<!-- adding a script to the HTML file, the script's type is "module", the source file is "index.js" -->
+
+  <script type="module" src="index.js"></script>
+
+  </body>
+</html>

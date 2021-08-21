@@ -1,0 +1,32 @@
+// If we want to export a function contained in a JS file to use
+// in several different JS files, we first need to EXPORT it, and
+// then IMPORT it into another file and use it without having to
+// rewrite it. Exporting can be done like so:
+
+// A - define a function and export it in the same statement:
+export const add = (x, y) => x + y;
+
+// B - first define a function, then export it in a separate statement:
+function subtract(x, y) {
+  return x - y;
+}
+export { subtract };
+
+// C - define several things, then export several things in a single
+// export statement, like this:
+const add1 = (x, y) => x + y;
+const subtract1 = (x, y) => x - y;
+export { add1, subtract1 };
+
+
+// LESSON CHALLENGE - export the 2 below functions somehow:
+const uppercaseString = (string) => {
+  return string.toUpperCase();
+}
+export {uppercaseString};     // exporting in a separate statement
+
+export const lowercaseString = (string) => {    // exporting as it's defined
+  return string.toLowerCase()
+}
+
+

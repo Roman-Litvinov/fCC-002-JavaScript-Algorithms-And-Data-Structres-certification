@@ -1,0 +1,9 @@
+// this function is using object property shorthand to return
+// a new object literal, setting its property names using the parameter
+// names specified in the declaration
+const createPerson = (name, age, gender) => ({ name, age, gender });
+
+// test it
+const newGuy = createPerson("Roman", "45", "male");
+console.log(newGuy);
+

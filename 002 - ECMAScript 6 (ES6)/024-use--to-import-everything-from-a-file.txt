@@ -1,0 +1,26 @@
+// To import EVERYTHING from the file, instead of only specific things,
+// we use the "import * as" syntax, like so:
+//
+//      import * as someVarName from "./someFile.js"
+//
+// where:
+// - someVarName - name for the new object that will contain everything that's been imported
+// - someFile.js - the path and the file name from which we import EVERYTHING
+
+// Example:
+// import everything from math_functions.js file in the same directory into an object named myMathModule:
+import * as myMathModule from "./math_functions.js";
+
+// And now we can use functions from math_functions.js that've been imported into myMathModule:
+let i = myMathModule.add(2,3);
+let j = myMathModule.subtract(5,3);
+
+
+// LESSON CHALLENGE:
+// import contents of "string_functions.js" in the same directory into 
+// an object named "stringFunctions", so we can use its functions:
+import * as stringFunctions from "./string_functions.js";
+
+var temp = stringFunctions.uppercaseString("hello");
+console.log(temp);
+stringFunctions.lowercaseString("WORLD!");

@@ -1,29 +1,19 @@
-// To pass arguments into an arrow function,
-// put them inside the parentheses, like so:
-const doubler = (item) => item*2;
-var arg = 4;
-console.log(arg + " doubled equals " + doubler(arg));
+// arrow functions can take arguments and act upon them, like so:
+const doubler = (item) => item *2;
+console.log("Doubler function in action:", doubler(15));
 
-// When there's only a single argument for the function,
-// we can omit the parentheses. The below function is exactly
-// the same as the doubler() function above:
-const doubler1 = item => item*2;
-var arg = 4;
-console.log(arg + " doubled still equals " + doubler1(arg));
+// if it's a single parameter, we can omit the parantheses around 
+// the parameter in the function definition:
+const tripler = item => item *3;
+console.log("Tripler function in action:", tripler(15));
 
-// When there are more than 1 parameters, we list them
-// separated by commas, like so:
-const summer = (a,b) => a+b;
-var arg1 = 2, arg2 = 3;
-console.log(arg1 + "+" + arg2 + " equals " + summer(arg1,arg2));
+// you can pass more than 1 argument to an arrow function, like so:
+const multiplier = (factor01, factor02) => factor01*factor02;
+console.log("Multiplier function in action:", multiplier(15, 4));
 
 
-/* below function appends contents of array to an array:
-var myConcat = function(arr1, arr2) {
-  return arr1.concat(arr2);
-};  */
-
-// rewrite it as an arrow function with 2 arguments:
+// LESSON CHALLENGE
+// re-write the function appending contents of array2 to array1
+// so that it uses the arrow function syntax:
 const myConcat = (arr1, arr2) => arr1.concat(arr2);
-
 console.log(myConcat([1, 2], [3, 4, 5]));
